@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment  # that is deployment name
+  namespace: nginx # here we need to specify namespace name
+  labels:
+    app: nginx-label  # that is label name for identification
+spec:
+  replicas: 3   
+  selector:
+    matchLabels:
+      app: nginx-label   # selector used for selecting a specific type of label
+  template:    # templete specify the pod configration
+    metadata:
+      labels:
+        app: nginx-label
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
