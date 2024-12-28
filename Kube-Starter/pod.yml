@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod # yeh pod ka name hai 
+  namespace: nginx-namespace  # yha basically hme namespace name define krna pdta hai 
+spec:
+  containers:
+  - name: nginx # yeh pod ka name hai 
+    image: nginx:latest  # docker hub se ngnix ki latest vali image pull hogi 
+    ports:
+    - containerPort: 80
