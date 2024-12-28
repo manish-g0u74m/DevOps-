@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service # here we need to specify the service name
+  namespace: nginx-namespace 
+  labels:
+    app: nginx-label  
+spec:
+  type: NodePort  # NodePort is type of Service basically service support three type of services 1. NordPort 2.ClusterIp 3 Loadbalancer 
+  selector:
+    app: nginx-label
+  ports:
+    - port: 80 # that is node machine internal port 
+      targetPort: 80 # that is contiainer port 
+      nodePort: 30009 # this is node machnie outer port 
